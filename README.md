@@ -21,9 +21,10 @@ To know if the mvn is installed, run the command "mvn --version" and check if it
 
 1.3-) Installing database
 
-Up to who want to be used, neet to change the pom dependency and datasource parameters
-# spring.datasource.url=jdbc:....
-# spring.datasource.driver-class-name=
+Depends on what to be used, need to change the pom dependency and other datasource parameters
+
+spring.datasource.url=jdbc:
+spring.datasource.driver-class-name=
 
 2-) Running application by command line:
 
