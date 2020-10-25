@@ -52,7 +52,7 @@
 
 	<changeSet author="tsoutello" id="20190204-004">
 		<loadData file="/db/csv/20200624-PROFILE.csv" separator=";"
-			tableName="Profile">
+			tableName="PROFILE">
 			<column header="ID" name="ID" type="string" />
 			<column header="DESCRIPTION" name="DESCRIPTION" type="string" />
 		</loadData>
@@ -62,7 +62,7 @@
 
 	<changeSet author="tsoutello" id="20190204-005">
 		<loadData file="/db/csv/20200624-USER.csv" separator=";"
-			tableName="User">
+			tableName="USER">
 			<column header="ID" name="ID" type="string" />
 			<column header="PROFILE_ID" name="PROFILE_ID" type="string" />
 			<column header="NAME" name="NAME" type="string" />

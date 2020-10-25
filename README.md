@@ -35,3 +35,6 @@ mvn spring-boot:run
 App: http://localhost:9090/spring-data-rest/api  
 Swagger: http://localhost:9090/spring-data-rest/api/swagger-ui.html#/
 
+OR via Docker
+
+docker stack deploy --prune --compose-file docker-compose.yml spring-data-rest-be
