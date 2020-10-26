@@ -10,16 +10,16 @@
 	<properties>
 		<!-- dependencies version -->
 		<commons-lang3.version>3.8.1</commons-lang3.version>
-		<jacoco.version>0.8.5</jacoco.version>
+		<jacoco.version>0.8.6</jacoco.version>
 		<javax-validation.version>2.0.1.Final</javax-validation.version>
 		<junit-engine.version>5.6.2</junit-engine.version>
 		<junit-platform.version>1.6.2</junit-platform.version>
 		<kotlin.version>1.4.0</kotlin.version>
-		<liquibase.version>4.0.0</liquibase.version>
+		<liquibase.version>4.1.1</liquibase.version>
 		<log4j2.version>2.13.3</log4j2.version>
 		<lombok.version>1.18.12</lombok.version>
 		<mockito.version>3.3.3</mockito.version>
-		<springdoc-openapi.version>1.4.1</springdoc-openapi.version>
+		<springdoc-openapi.version>1.4.8</springdoc-openapi.version>
 		<!-- other configurations -->
 		<encoding>UTF-8</encoding>
 		<jacoco.reportPath>${project.build.directory}/jacoco-report</jacoco.reportPath>
@@ -32,7 +32,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.3.2.RELEASE</version>
+		<version>2.3.4.RELEASE</version>
 	</parent>
 	<dependencies>
 		<!-- SPRING FRAMEWORK -->
@@ -99,17 +99,18 @@
 			<artifactId>liquibase-core</artifactId>
 			<version>${liquibase.version}</version>
 		</dependency>
-		<!-- MYSQL CONFIG -->
+		<!-- MYSQL CONFIG 
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 			<scope>runtime</scope>
 		</dependency>
+		-->
 		<!-- H2 CONFIG -->
 		<dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
-			<scope>test</scope>
+			<scope>runtime</scope>
 		</dependency>
 		<!-- Bean Validator -->
 		<dependency>
