@@ -1,3 +1,9 @@
+---
+kind: Namespace
+apiVersion: v1
+metadata:
+  name: spring
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -21,14 +27,15 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
+  name: spring
+  namespace: spring
   labels:
     app: spring
-  name: spring
 spec:
+  type: LoadBalancer
   ports:
   - port: 9090
     protocol: TCP
     targetPort: 9090
   selector:
     app: spring
-  type: ClusterIP
