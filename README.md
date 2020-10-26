@@ -40,7 +40,12 @@ OR via Docker
 Using Purely:
 
 docker build --no-cache -t spring-backend .
-docker run -d --restart always --network=host -p 9090:9090 --name spring-backend -t spring-backend
+docker run -d --restart always -p 9090:9090 --name spring-backend -t spring-backend
+
+To kill:
+
+docker container kill spring-backend
+docker container prune
 
 Using Docker Swarm:
 

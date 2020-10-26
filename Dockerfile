@@ -6,8 +6,8 @@ RUN mkdir $APP_HOME
 
 WORKDIR $APP_HOME
 
-COPY ./target/spring-data-rest.jar application.jar
+COPY target/spring-data-rest.jar application.jar
 
-EXPOSE 8080
+EXPOSE 9090
 
 CMD ["java","-jar","application.jar"]
