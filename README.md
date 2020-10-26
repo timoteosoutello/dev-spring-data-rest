@@ -37,4 +37,11 @@ Swagger: http://localhost:9090/spring-data-rest/api/swagger-ui.html#/
 
 OR via Docker
 
-docker stack deploy --prune --compose-file docker-compose.yml spring-data-rest-be
+Using Purely:
+
+docker build --no-cache -t spring-backend .
+docker run -d --restart always --network=host -p 9090:9090 --name spring-backend -t spring-backend
+
+Using Docker Swarm:
+
+docker stack deploy --prune --compose-file docker-compose.yml spring-backend
