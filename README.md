@@ -26,27 +26,39 @@ Depends on what to be used, need to change the pom dependency and other datasour
 spring.datasource.url=jdbc:
 spring.datasource.driver-class-name=
 
-2-) Running application by command line:
+## Running the App
 
+**1-) Via Maven**
 mvn spring-boot:run
 
-## Acessing application by swagger-UI
-
-App: http://localhost:9090/spring-data-rest/api  
-Swagger: http://localhost:9090/spring-data-rest/api/swagger-ui.html#/
-
-OR via Docker
-
-Using Purely:
-
+**2-) Via Docker**
 docker build --no-cache -t spring-backend .
 docker run -d --restart always -p 9090:9090 --name spring-backend -t spring-backend
 
-To kill:
+**Killing the container**:
 
 docker container kill spring-backend
 docker container prune
 
-Using Docker Swarm:
+**Using Docker Swarm / Docker Compose**
 
 docker stack deploy --prune --compose-file docker-compose.yml spring-backend
+
+**3-) Via Kubernetes**
+
+kubectl apply -f deployment.yaml
+kubectl port-forward svc/spring 9090:9090
+
+Kubernetes - Deployment YAML creation:
+kubectl create deployment demo --image=spring-backend --dry-run -o=yaml > deployment.yaml 
+kubectl create service clusterip demo --tcp=9090:9090 --dry-run -o=yaml >> deployment.yaml
+
+
+
+## Accessing application by swagger-UI
+
+App: http://localhost:9090/spring-data-rest/api  
+Swagger: http://localhost:9090/spring-data-rest/api/swagger-ui.html#/
+
+curl localhost:9090/spring-data-rest/api/actuator/health
+
