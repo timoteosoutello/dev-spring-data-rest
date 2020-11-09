@@ -33,11 +33,13 @@ mvn spring-boot:run
 
 **2-) Via Docker**
 docker build --no-cache -t spring-backend .
+
 docker run -d --restart always -p 9090:9090 --name spring-backend -t spring-backend
 
 **Killing the container**:
 
 docker container kill spring-backend
+
 docker container prune
 
 **Using Docker Swarm / Docker Compose**
@@ -47,12 +49,15 @@ docker stack deploy --prune --compose-file docker-compose.yml spring-backend
 **3-) Via Kubernetes**
 
 kubectl apply -f deployment.yaml
+
 kubectl port-forward svc/spring 9090:9090
 
-Kubernetes - Deployment YAML creation:
-kubectl create deployment demo --image=spring-backend --dry-run -o=yaml > deployment.yaml 
-kubectl create service clusterip demo --tcp=9090:9090 --dry-run -o=yaml >> deployment.yaml
 
+Kubernetes - Deployment YAML creation:
+
+kubectl create deployment demo --image=spring-backend --dry-run -o=yaml > deployment.yaml 
+
+kubectl create service clusterip demo --tcp=9090:9090 --dry-run -o=yaml >> deployment.yaml
 
 
 ## Accessing application by swagger-UI
