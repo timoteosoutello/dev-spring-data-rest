@@ -34,7 +34,7 @@ mvn spring-boot:run
 **2-) Via Docker**
 docker build --no-cache -t spring-backend .
 
-docker run -d --restart always -p 9090:9090 --name spring-backend -t spring-backend
+docker run -d --restart always -p 9797:9797 --name spring-backend -t spring-backend
 
 **Killing the container**:
 
@@ -50,20 +50,20 @@ docker stack deploy --prune --compose-file docker-compose.yml spring-backend
 
 kubectl apply -f deployment.yaml
 
-kubectl port-forward svc/spring 9090:9090
+kubectl port-forward svc/spring 9797:9797
 
 
 Kubernetes - Deployment YAML creation:
 
 kubectl create deployment demo --image=spring-backend --dry-run -o=yaml > deployment.yaml 
 
-kubectl create service clusterip demo --tcp=9090:9090 --dry-run -o=yaml >> deployment.yaml
+kubectl create service clusterip demo --tcp=9797:9797 --dry-run -o=yaml >> deployment.yaml
 
 
 ## Accessing application by swagger-UI
 
-App: http://localhost:9090/spring-data-rest/api  
-Swagger: http://localhost:9090/spring-data-rest/api/swagger-ui.html#/
+App: http://localhost:9797/spring-data-rest/api  
+Swagger: http://localhost:9797/spring-data-rest/api/swagger-ui.html#/
 
-curl localhost:9090/spring-data-rest/api/actuator/health
+curl localhost:9797/spring-data-rest/api/actuator/health
 
