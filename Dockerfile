@@ -8,6 +8,6 @@ WORKDIR $APP_HOME
 
 COPY target/spring-data-rest.jar application.jar
 
-EXPOSE 9090
+EXPOSE 9797
 
 CMD ["java","-jar","application.jar"]
