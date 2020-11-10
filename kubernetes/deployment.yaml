@@ -25,16 +25,18 @@ spec:
         ports:
         - containerPort: 9797
         livenessProbe:
-          tcpSocket:
-            port: 9797
+          httpGet:
+              path: /spring-data-rest/api/actuator/health/liveness
+              port: 9797
           initialDelaySeconds: 30
           periodSeconds: 5
           timeoutSeconds: 2
           failureThreshold: 3
           successThreshold: 1
         readinessProbe:
-          tcpSocket:
-            port: 9797
+          httpGet:
+              path: /spring-data-rest/api/actuator/health/liveness
+              port: 9797
           initialDelaySeconds: 30
           periodSeconds: 5
           timeoutSeconds: 2
