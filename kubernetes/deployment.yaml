@@ -35,7 +35,7 @@ spec:
           successThreshold: 1
         readinessProbe:
           httpGet:
-              path: /spring-data-rest/api/actuator/health/liveness
+              path: /spring-data-rest/api/actuator/health/readiness
               port: 9797
           initialDelaySeconds: 30
           periodSeconds: 5
