@@ -43,9 +43,9 @@ docker run -d --restart always -p 9797:9797 --name spring-backend -t spring-back
 
 **Publishing (with tag version)**:
 
-docker build --tag tsoutello/spring-backend:1.0.2 .
+docker build --no-cache -t tsoutello/spring-backend:1.0.3 --tag tsoutello/spring-backend:1.0.3 .
 
-docker push tsoutello/spring-backend:1.0.2
+docker push tsoutello/spring-backend:1.0.3
 
 **Killing the container**:
 

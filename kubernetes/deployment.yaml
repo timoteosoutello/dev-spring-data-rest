@@ -10,7 +10,7 @@ metadata:
   name: spring
   namespace: spring
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: spring
@@ -20,24 +20,24 @@ spec:
         app: spring
     spec:
       containers:
-      - image: tsoutello/spring-backend:1.0.1
+      - image: tsoutello/spring-backend:1.0.3
         name: spring
         ports:
         - containerPort: 9797
         livenessProbe:
           httpGet:
-              path: /spring-data-rest/api/actuator/health/liveness
+              path: /spring-data-rest/api/actuator/health/livenessState
               port: 9797
-          initialDelaySeconds: 30
+          initialDelaySeconds: 60
           periodSeconds: 5
           timeoutSeconds: 2
           failureThreshold: 3
           successThreshold: 1
         readinessProbe:
           httpGet:
-              path: /spring-data-rest/api/actuator/health/readiness
+              path: /spring-data-rest/api/actuator/health/readinessState
               port: 9797
-          initialDelaySeconds: 30
+          initialDelaySeconds: 60
           periodSeconds: 5
           timeoutSeconds: 2
           failureThreshold: 3
