@@ -21,10 +21,12 @@ To know if the mvn is installed, run the command "mvn --version" and check if it
 
 1.3-) Installing database
 
-Depends on what to be used, need to change the pom dependency and other datasource parameters
+Depends on what to be used, need to change the pom dependency and other datasource parameters like below:
 
 spring.datasource.url=jdbc:
 spring.datasource.driver-class-name=
+
+PS: Currently is using H2 memory database
 
 ## Running the App
 
@@ -32,9 +34,18 @@ spring.datasource.driver-class-name=
 mvn spring-boot:run
 
 **2-) Via Docker**
+
+**Building up**:
+
 docker build --no-cache -t spring-backend .
 
 docker run -d --restart always -p 9797:9797 --name spring-backend -t spring-backend
+
+**Publishing (with tag version)**:
+
+docker build --tag tsoutello/spring-backend:1.0.2 .
+
+docker push tsoutello/spring-backend:1.0.2
 
 **Killing the container**:
 
@@ -53,7 +64,7 @@ kubectl apply -f deployment.yaml
 kubectl port-forward svc/spring 9797:9797
 
 
-Kubernetes - Deployment YAML creation:
+**Kubernetes - Deployment YAML creation:**
 
 kubectl create deployment demo --image=spring-backend --dry-run -o=yaml > deployment.yaml 
 
@@ -62,8 +73,6 @@ kubectl create service clusterip demo --tcp=9797:9797 --dry-run -o=yaml >> deplo
 
 ## Accessing application by swagger-UI
 
-App: http://localhost:9797/spring-data-rest/api  
-Swagger: http://localhost:9797/spring-data-rest/api/swagger-ui.html#/
-
-curl localhost:9797/spring-data-rest/api/actuator/health
-
+- App: http://localhost:9797/spring-data-rest/api  
+- Swagger: http://localhost:9797/spring-data-rest/api/swagger-ui.html#/
+- curl localhost:9797/spring-data-rest/api/actuator/health

@@ -3,7 +3,7 @@ services:
   web:
     image: spring-data-rest-be
     ports:
-      - "9090:9090"
+      - "9797:9797"
     tty: true
     stdin_open: true
     deploy:
