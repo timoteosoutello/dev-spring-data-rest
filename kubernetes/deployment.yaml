@@ -20,7 +20,7 @@ spec:
         app: rest-service
     spec:
       containers:
-      - image: tsoutello/spring-backend:1.0.4
+      - image: tsoutello/rest-service:1.0.0
         name: rest-service
         ports:
         - containerPort: 80
