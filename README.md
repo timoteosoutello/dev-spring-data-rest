@@ -39,7 +39,7 @@ mvn spring-boot:run
 
 docker build --no-cache -t rest-service .
 
-docker run -d --restart always -p 80:80 --name rest-service -t rest-service
+docker run -d --restart always -p 9797:80 --name rest-service -t rest-service
 
 **Publishing (with tag version)**:
 
@@ -61,7 +61,7 @@ docker stack deploy --prune --compose-file docker-compose.yml rest-service
 
 kubectl apply -f deployment.yaml
 
-kubectl port-forward svc/rest-service 80:80
+kubectl port-forward svc/rest-service 9797:80
 
 **Kubernetes - Deployment YAML creation:**
 
