@@ -37,42 +37,41 @@ mvn spring-boot:run
 
 **Building up**:
 
-docker build --no-cache -t spring-backend .
+docker build --no-cache -t rest-service .
 
-docker run -d --restart always -p 9797:9797 --name spring-backend -t spring-backend
+docker run -d --restart always -p 80:80 --name rest-service -t rest-service
 
 **Publishing (with tag version)**:
 
-docker build --no-cache -t tsoutello/spring-backend:1.0.3 --tag tsoutello/spring-backend:1.0.3 .
+docker build --no-cache -t tsoutello/rest-service:1.0.0 --tag tsoutello/rest-service:1.0.0 .
 
-docker push tsoutello/spring-backend:1.0.3
+docker push tsoutello/rest-service:1.0.0
 
 **Killing the container**:
 
-docker container kill spring-backend
+docker container kill rest-service
 
 docker container prune
 
 **Using Docker Swarm / Docker Compose**
 
-docker stack deploy --prune --compose-file docker-compose.yml spring-backend
+docker stack deploy --prune --compose-file docker-compose.yml rest-service
 
 **3-) Via Kubernetes**
 
 kubectl apply -f deployment.yaml
 
-kubectl port-forward svc/spring 9797:9797
-
+kubectl port-forward svc/rest-service 80:80
 
 **Kubernetes - Deployment YAML creation:**
 
-kubectl create deployment demo --image=spring-backend --dry-run -o=yaml > deployment.yaml 
+kubectl create deployment demo --image=rest-service --dry-run -o=yaml > deployment.yaml 
 
-kubectl create service clusterip demo --tcp=9797:9797 --dry-run -o=yaml >> deployment.yaml
+kubectl create service clusterip demo --tcp=80:80 --dry-run -o=yaml >> deployment.yaml
 
 
 ## Accessing application by swagger-UI
 
-- App: http://localhost:9797/spring-data-rest/api  
-- Swagger: http://localhost:9797/spring-data-rest/api/swagger-ui.html#/
-- curl localhost:9797/spring-data-rest/api/actuator/health
+- App: http://localhost:80/rest-service/api  
+- Swagger: http://localhost:80/rest-service/api/swagger-ui.html#/
+- curl localhost:80/rest-service/api/actuator/health

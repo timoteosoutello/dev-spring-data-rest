@@ -7,27 +7,27 @@ metadata:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: spring
-  namespace: spring
+  name: rest-service
+  namespace: rest-service
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: spring
+      app: rest-service
   template:
     metadata:
       labels:
-        app: spring
+        app: rest-service
     spec:
       containers:
-      - image: tsoutello/spring-backend:1.0.3
-        name: spring
+      - image: tsoutello/spring-backend:1.0.4
+        name: rest-service
         ports:
-        - containerPort: 9797
+        - containerPort: 80
         livenessProbe:
           httpGet:
-              path: /spring-data-rest/api/actuator/health/livenessState
-              port: 9797
+              path: /rest-service/api/actuator/health/livenessState
+              port: 80
           initialDelaySeconds: 60
           periodSeconds: 5
           timeoutSeconds: 2
@@ -35,8 +35,8 @@ spec:
           successThreshold: 1
         readinessProbe:
           httpGet:
-              path: /spring-data-rest/api/actuator/health/readinessState
-              port: 9797
+              path: /rest-service/api/actuator/health/readinessState
+              port: 80
           initialDelaySeconds: 60
           periodSeconds: 5
           timeoutSeconds: 2
@@ -46,12 +46,12 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: spring
-  namespace: spring
+  name: rest-service
+  namespace: rest-service
 spec:
   type: LoadBalancer
   ports:
-    - port: 9797
-      targetPort: 9797
+    - port: 80
+      targetPort: 80
   selector:
-    app: spring
+    app: rest-service

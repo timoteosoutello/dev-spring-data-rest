@@ -3,7 +3,7 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.github</groupId>
-	<artifactId>spring-data-rest</artifactId>
+	<artifactId>rest-service</artifactId>
 	<packaging>jar</packaging>
 	<version>1.0.0-SNAPSHOT</version>
 	<name>Spring Data REST API</name>
@@ -140,18 +140,17 @@
 			<version>${liquibase.version}</version>
 		</dependency>
 		<!-- DATABASE CONFIGURATION -->
-		<!-- MYSQL CONFIG -->
+		<!-- MYSQL CONFIG 
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 		</dependency>
-		<!-- H2 CONFIG 
+		-->
+		<!-- H2 CONFIG --> 
 		<dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
-			<scope>runtime</scope>
 		</dependency>
-		-->
 		<!-- Bean Validator -->
 		<dependency>
 			<groupId>javax.validation</groupId>

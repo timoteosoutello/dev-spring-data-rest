@@ -1,4 +1,4 @@
-FROM openjdk:11-jre-slim
+FROM ghcr.io/graalvm/graalvm-ce:java11-21.0.0.2
 
 ENV APP_HOME=/usr/app/
 
@@ -6,8 +6,8 @@ RUN mkdir $APP_HOME
 
 WORKDIR $APP_HOME
 
-COPY target/spring-data-rest.jar application.jar
+COPY target/rest-service.jar application.jar
 
-EXPOSE 9797
+EXPOSE 80
 
 CMD ["java","-jar","application.jar"]
