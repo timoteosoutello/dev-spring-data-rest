@@ -1,4 +1,4 @@
-FROM ghcr.io/graalvm/graalvm-ce:java11-21.0.0.2
+FROM ghcr.io/graalvm/graalvm-ce:ol8-java17-22
 
 ENV APP_HOME=/usr/app/
 
@@ -8,6 +8,6 @@ WORKDIR $APP_HOME
 
 COPY target/rest-service.jar application.jar
 
-EXPOSE 80
+EXPOSE 9797
 
 CMD ["java","-jar","application.jar"]

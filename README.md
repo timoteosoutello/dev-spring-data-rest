@@ -5,7 +5,7 @@ This API it's a just a sample use for spring boot + spring data + spring data re
 ## Configure environment
 1-) Setup
 
-1.1-) Installing Java 11
+1.1-) Installing Java 17
 Download JDK on http://www.oracle.com/technetwork/java/javase/downloads
 
 Set JAVA_HOME env based on where the JDK will be installed. Add to PATH as JAVA_HOME\bin. 
