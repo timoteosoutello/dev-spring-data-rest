@@ -1,6 +1,6 @@
 ## Brief Description
 
-This API it's a just a sample use for spring boot + spring data + spring data rest + spring actuator + swagger with java 11 version.
+This API it's a just a sample use for spring boot + spring data + spring data rest + spring actuator + swagger with java 17 version.
 
 ## Configure environment
 1-) Setup
